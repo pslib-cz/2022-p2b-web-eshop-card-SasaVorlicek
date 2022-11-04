@@ -1,0 +1,251 @@
+/* Inline  tlačítek jsem opravil, obrázkům jsem už nastavil i výšku. Pouze jsem nepochopil 1. bod - Název produktu nemá? 
+a poslední bod, design by neměl zubovat, jelikož podle toho co jsem koukal tak nadpis a kartička je rozbitá až někdy cca od width stránky 260px, pokud tedy myslíme to stejné */
+
+
+
+
+@font-face {
+    font-family: Icons;
+    src: url(../fonts/icomoon.ttf);
+}
+
+html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+}
+
+:root {
+    --heading-1: #239ceb;
+    --flag-1: #59d6e4;
+    --flag-2: #e94b4b;
+    --flag-3: #ffc702;
+    --discount: #1d7af8;
+    --availability: #47ac78;
+    --button-detail: #239ceb;
+    --button-kosik: #468c98;
+    --text: #666666;
+    --price: #333333;
+}
+
+
+.products {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
+.card {
+    width: 350px;
+    margin: 0;
+    border-bottom: 1px solid rgb(216, 216, 216);
+    border-right: 1px solid rgb(216, 216, 216);
+    padding: 0 20px 12px 20px;
+}
+
+.card:last-child {
+    border-right: none;
+}
+
+.card__header {
+    padding-top: 20px;
+    height: 375px;
+    contain: content;
+}
+
+.header__link {
+    display: block;
+    position: relative;
+}
+
+.card__img {
+    height: 100%;
+}
+
+.img-responsive {
+    max-width: 100%;
+    object-fit: cover;
+}
+
+.card__flags {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.flag {
+    padding: 4px 8px;
+    color: white;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 4px;
+    float: left;
+    clear: left;
+}
+
+.flag:first-child {
+    margin-top: 16px;
+}
+
+.flag--1 {
+    background-color: var(--flag-1);
+}
+.flag--2 {
+    background-color: var(--flag-2); 
+}
+.flag--3 {
+    background-color: var(--flag-3);
+}
+
+.card__code {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    color: #b2b2b2;
+    margin: 0;
+    margin-top: 16px;
+    font-size: 0.9em;   
+}
+
+.card__discount {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    background-color: var(--discount);
+    height: 75px;
+    width: 75px;
+    border-radius: 100%;
+    font-weight: 700;
+    font-size: 0.8em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin: 0;
+}
+
+.card__content {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.card__heading {
+    color: var(--heading-1);
+    font-size: 1em;
+    line-height: 1.5;
+    text-decoration: none;
+}
+
+.card__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.card__items:last-of-type {
+    height: 40px;
+}
+
+.card__stars {
+    font-family: Icons;
+    color: #f0b820;
+    margin: 0;
+    font-size: 0.75em;
+}
+
+.card__availability {
+    color: var(--availability);
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.availability_end {
+    color: var(--text);
+}
+
+.card__price {
+    color: var(--price);
+    font-size: 1.3em;
+    font-weight: 700;
+    margin: 0;
+}
+
+.card__button {
+    margin: 0;
+}
+
+.button {
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    padding: 6px 15px;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.button__detail {
+    background-color: var(--button-detail);
+}
+
+.button__kosik {
+    background-color: var(--button-kosik);
+    display: flex;
+    align-items: center;
+    padding: 6px 18px;
+}
+
+.button__kosik::before {
+    font-family: Icons;
+    content: "";
+    font-size: 1.6em;
+    margin-right: 13px;
+}
+
+.card__subtext {
+    padding-right: 20px;
+    color: var(--text);
+    font-size: 0.9em;
+    margin: 0;
+    padding-top: 25px;
+    min-height: 85px;
+}
+
+.card__footer {
+    display: inline;
+}
+
+.card__flavour {
+    color: var(--text);
+    font-size: 0.9em;
+    padding-right: 18px;
+    text-decoration: none;
+}
+
+.card__flavour:last-child::after {
+    content: "+ další";
+    color: #b2b2b2;
+    padding-left: 18px;
+}
+
+
+
+/*
+Věci které chybí (dokázal bych je možná nějakým způsobem udělat, ale hrozně 
+složitě/neefektivně a určitě existuje lepší způsob jak je udělat): 
+
+
+-Odstranění right-borderu na poslední kartičce v řádku po tom co flex-wrap přizpůsobí stránku
+=== Jakmile zmenšíme width stránky a zbydou pouze 2 kartičky (kvůli flex-wrapu), odstraní se right-border kartičky
+
+-Hover s informací kolik zákazníku zakoupilo zboží
+
+
+*/
