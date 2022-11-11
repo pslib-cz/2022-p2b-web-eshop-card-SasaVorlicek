@@ -49,7 +49,7 @@ html {
 }
 
 .card__header {
-    padding-top: 20px;
+    padding-top: 10px;
     height: 375px;
     contain: content;
 }
